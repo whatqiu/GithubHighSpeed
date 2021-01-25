@@ -1,3 +1,4 @@
+# coding:utf8
 import re
 from os import name, system
 
@@ -27,10 +28,9 @@ def re_ip():
 
 def re_hosts():
     score_ip = re_ip()
-    return ['\ngithub.com ' + score_ip[0],
-            '\nassets-cdn.github.com ' + score_ip[1],
-            '\ngithub.global.ssl.fastly.net ' + score_ip[2] +'\n'
-            ]
+    return [score_ip[0] + ' github.com\n',
+            score_ip[1] + ' assets-cdn.github.com\n',
+            score_ip[2] + ' github.global.ssl.fastly.net\n']
 
 
 if __name__ == '__main__':
@@ -39,8 +39,8 @@ if __name__ == '__main__':
             rl = r.readlines()
             with open(r'C:\Windows\System32\drivers\etc\hosts', 'w') as w:
                 for str_rl in rl:
-                    if str_rl.startswith(
-                            'github.com' or 'assets-cdn.github.com'\
+                    if str_rl.endswith(
+                            'github.com' or 'assets-cdn.github.com' \
                             or 'github.global.ssl.fastly.net '):
                         rl.remove(str_rl)
                 w.writelines(rl)
@@ -52,9 +52,9 @@ if __name__ == '__main__':
             rl = r.readlines()
             with open(r'\etc\hosts', 'w') as w:
                 for str_rl in rl:
-                    if str_rl.startswith(
-                            'github.com' or 'assets-cdn.github.com'\
-                            or 'github.global.ssl.fastly.net '):
+                    if str_rl.endswith(
+                            'github.com' or 'assets-cdn.github.com' \
+                            or 'github.global.ssl.fastly.net'):
                         rl.remove(str_rl)
                 w.writelines(rl)
                 w.writelines(re_hosts())
