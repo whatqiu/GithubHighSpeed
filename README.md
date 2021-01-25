@@ -1,2 +1,8 @@
-# GithubHighSpeed
-Github访问加速     由于需要修改Hosts文件，所以要管理员&amp;根权限
+# Github加速访问
+# 感谢ipaddress.com的开发及运营团队
+本工具的DNS解析IP便是从他们那里获取的
+
+### 原理是获得DNS后写入Hosts文件，全平台通用，
+### 可添加至开机自启动
+
+#### 没有大变动的话以后最多就是通过p2p减少服务器压力了
